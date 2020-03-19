@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class EventControl : MonoBehaviour
@@ -37,6 +38,33 @@ public class EventControl : MonoBehaviour
                     {
                         receiver.GetComponent<BounceAnimation>().StartBounce();
                         receiver.GetComponent<CityStatus>().SetStatus(false);
+                        break;
+                    }
+                }
+                break;
+            }
+            case "P1_2":
+            {
+                switch(receiver.name)
+                {
+                    case "Sensor":
+                    {
+                        if(step == 0)
+                        {
+                            StartCoroutine(P1_1_1(receiver));
+                        }
+                        else
+                        {
+                            receiver.GetComponent<BounceAnimation>().StartBounce();
+                            StartCoroutine(SensorDelay(receiver));
+                        }
+                        break;
+                    }
+                    case "City":
+                    {
+                        receiver.GetComponent<BounceAnimation>().StartBounce();
+                        receiver.GetComponent<CityStatus>().SetStatus(false);
+                        P1_2_2();
                         break;
                     }
                 }
@@ -195,6 +223,39 @@ public class EventControl : MonoBehaviour
         receiver.GetComponent<BounceAnimation>().StartBounce();
         receiver.GetComponent<CityStatus>().SetStatus(true);
         GameObject.Find("Canvas").transform.Find("RetryButton").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("NextButton").gameObject.SetActive(true);
+    }
+
+    public void P1_2_1(GameObject buttonClicked)
+    {
+        if(buttonClicked.name == "YesButton")
+        {
+            step++;
+        }
+        else
+        {
+            step--;
+        }
+
+        GameObject.Find("Epicenter").transform.Find("Waves").GetComponent<WavesSpread>().Toggle();
+    }
+
+    public void P1_2_2()
+    {
+        GameObject.Find("Epicenter").transform.Find("Waves").GetComponent<WavesSpread>().Toggle();
+
+        GameObject response = GameObject.Find("Canvas").transform.Find("Response").gameObject;
+
+        if(step == 1)
+        {
+            response.GetComponent<Text>().text = "Correct! The P-waves arrives before the alert.";
+        }
+        else
+        {
+            response.GetComponent<Text>().text = "Incorrect. The P-waves arrives before the alert.";
+        }
+
+        response.SetActive(true);
         GameObject.Find("Canvas").transform.Find("NextButton").gameObject.SetActive(true);
     }
 }
