@@ -70,6 +70,27 @@ public class EventControl : MonoBehaviour
                 }
                 break;
             }
+            case "P1_3":
+            {
+                switch(receiver.name)
+                {
+                    case "Sensor":
+                    {
+                        receiver.GetComponent<BounceAnimation>().StartBounce();
+                        StartCoroutine(SensorDelay(receiver));
+                        break;
+                    }
+                    case "City":
+                    {
+                        receiver.GetComponent<BounceAnimation>().StartBounce();
+                        receiver.GetComponent<CityStatus>().SetStatus(false);
+                        step--;
+                        P1_3_2();
+                        break;
+                    }
+                }
+                break;
+            }
             default:
             {
                 switch(receiver.name)
@@ -113,6 +134,31 @@ public class EventControl : MonoBehaviour
                     case "City":
                     {
                         StartCoroutine(P1_1_3(receiver));
+                        break;
+                    }
+                }
+                break;
+            }
+            case "P1_3":
+            {
+                switch(receiver.name)
+                {
+                    case "Network":
+                    {
+                        if(receiver.GetComponent<NetworkStatus>().AddDataPoint() == 3)
+                        {
+                            receiver.GetComponent<BounceAnimation>().StartBounce();
+                            StartCoroutine(NetworkDelay(receiver));
+                        }
+                        break;
+                    }
+                    case "City":
+                    {
+                        receiver.GetComponent<CircleCollider2D>().enabled = false;
+                        receiver.GetComponent<BounceAnimation>().StartBounce();
+                        receiver.GetComponent<CityStatus>().SetStatus(true);
+                        step++;
+                        P1_3_2();
                         break;
                     }
                 }
@@ -177,6 +223,11 @@ public class EventControl : MonoBehaviour
             case "P1_1":
             {
                 SceneManager.LoadScene("P1_2");
+                break;
+            }
+            case "P1_2":
+            {
+                SceneManager.LoadScene("P1_3");
                 break;
             }
         }
@@ -248,14 +299,44 @@ public class EventControl : MonoBehaviour
 
         if(step == 1)
         {
-            response.GetComponent<Text>().text = "Correct! The P-waves arrives before the alert.";
+            response.GetComponent<Text>().text = "Incorrect. The waves arrives before the alert.";
         }
         else
         {
-            response.GetComponent<Text>().text = "Incorrect. The P-waves arrives before the alert.";
+            response.GetComponent<Text>().text = "Correct! The waves arrives before the alert.";
         }
 
         response.SetActive(true);
         GameObject.Find("Canvas").transform.Find("NextButton").gameObject.SetActive(true);
+    }
+
+    public void P1_3_1()
+    {
+        GameObject.Find("Epicenter").transform.Find("Waves").GetComponent<WavesSpread>().Toggle();
+    }
+
+    public void P1_3_2()
+    {
+        GameObject.Find("Epicenter").transform.Find("Waves").GetComponent<WavesSpread>().Toggle();
+
+        GameObject response1 = GameObject.Find("Canvas").transform.Find("Response1").gameObject;
+
+        if(step == 1)
+        {
+            response1.GetComponent<Text>().text = "Well Done!";
+            response1.SetActive(true);
+            GameObject response2 = GameObject.Find("Canvas").transform.Find("Response2").gameObject;
+            response2.SetActive(true);
+            
+            GameObject.Find("Canvas").transform.Find("RetryButton").gameObject.GetComponent<Button>().interactable = true;
+            GameObject.Find("Canvas").transform.Find("NextButton").gameObject.SetActive(true);
+        }
+        else
+        {
+            response1.GetComponent<Text>().text = "Failed! Try Again.";
+            response1.SetActive(true);
+            
+            GameObject.Find("Canvas").transform.Find("RetryButton").gameObject.GetComponent<Button>().interactable = true;
+        }
     }
 }
