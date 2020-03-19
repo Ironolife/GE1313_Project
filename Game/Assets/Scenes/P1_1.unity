@@ -3887,6 +3887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spread_speed: 2.7
   max_scale: 100
+  is_paused: 1
 --- !u!1 &2060137627
 GameObject:
   m_ObjectHideFlags: 0

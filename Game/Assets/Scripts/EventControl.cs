@@ -164,6 +164,32 @@ public class EventControl : MonoBehaviour
                 }
                 break;
             }
+            case "P1_4":
+            {
+                switch(receiver.name)
+                {
+                    case "Network":
+                    {
+                        if(receiver.GetComponent<NetworkStatus>().AddDataPoint() == 3)
+                        {
+                            receiver.GetComponent<BounceAnimation>().StartBounce();
+                            GameObject loading = receiver.transform.Find("Loading").gameObject;
+                            loading.SetActive(true);
+                        }
+                        break;
+                    }
+                    case "City":
+                    {
+                        receiver.GetComponent<CircleCollider2D>().enabled = false;
+                        receiver.GetComponent<BounceAnimation>().StartBounce();
+                        receiver.GetComponent<CityStatus>().SetStatus(true);
+                        step++;
+                        P1_3_2();
+                        break;
+                    }
+                }
+                break;
+            }
             default:
             {
                 switch(receiver.name)
@@ -228,6 +254,16 @@ public class EventControl : MonoBehaviour
             case "P1_2":
             {
                 SceneManager.LoadScene("P1_3");
+                break;
+            }
+            case "P1_3":
+            {
+                SceneManager.LoadScene("P1_4");
+                break;
+            }
+            case "P1_4":
+            {
+                SceneManager.LoadScene("P1_5");
                 break;
             }
         }

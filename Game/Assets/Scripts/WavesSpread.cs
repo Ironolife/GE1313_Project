@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuakeSpread : MonoBehaviour
+public class WavesSpread : MonoBehaviour
 {
     public float spread_speed = 3.0f;
     public float max_scale = 40.0f;
-    private bool is_paused = false;
+    public bool is_paused = true;
 
     void Start()
     {
