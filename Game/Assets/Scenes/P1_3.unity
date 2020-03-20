@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 479.9, y: 7}
+  m_AnchoredPosition: {x: 479.9, y: 49.599983}
   m_SizeDelta: {x: 529.2, y: 69.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10609785
@@ -190,7 +190,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcf3dd959df97f842b8a349135a03305, type: 3}
-    m_FontSize: 46
+    m_FontSize: 36
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8768e0e8beb811b41827576b1cf9c1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite_default: {fileID: 0}
   sprite_true: {fileID: 21300000, guid: 4a9476b1f48901044b729958ed2f450c, type: 3}
   sprite_false: {fileID: 21300000, guid: 0a776fe13a0ca584dbcaa10bde66e192, type: 3}
 --- !u!114 &332094468
@@ -1141,7 +1142,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcf3dd959df97f842b8a349135a03305, type: 3}
-    m_FontSize: 36
+    m_FontSize: 32
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1177,8 +1178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 479.89993, y: 366.95}
-  m_SizeDelta: {x: 529.2, y: 130.1}
+  m_AnchoredPosition: {x: 479.89993, y: 389}
+  m_SizeDelta: {x: 529.2, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &794040679
 GameObject:
@@ -1390,7 +1391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 333.44, y: 171.90001}
+  m_AnchoredPosition: {x: 333.44, y: 214.49998}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973183631
@@ -1653,7 +1654,7 @@ GameObject:
   - component: {fileID: 1040795332}
   m_Layer: 0
   m_Name: Network
-  m_TagString: Untagged
+  m_TagString: Network
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2098,8 +2099,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 479.89993, y: -139.90001}
-  m_SizeDelta: {x: 529.2, y: 164}
+  m_AnchoredPosition: {x: 479.89993, y: -114.850044}
+  m_SizeDelta: {x: 529.2, y: 209.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1095752348
 MonoBehaviour:
@@ -2133,7 +2134,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcf3dd959df97f842b8a349135a03305, type: 3}
-    m_FontSize: 32
+    m_FontSize: 28
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -2145,7 +2146,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: We can observe that alert time can be maximize by putting sensors and network
-    near the epicenter, and far away from the city.
+    near the epicenter, and far away from the city, taking advantage of the difference
+    between the speed of light (optical fibre) and the speed of seismic waves.
 --- !u!222 &1095752350
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2600,7 +2602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 614.4999, y: 171.90001}
+  m_AnchoredPosition: {x: 614.4999, y: 214.49997}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341033204
@@ -2818,7 +2820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 479.89996, y: -351.89996}
+  m_AnchoredPosition: {x: 479.89996, y: -349.4}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362080114
@@ -3484,6 +3486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spread_speed: 3
   max_scale: 40
+  is_paused: 1
 --- !u!1 &2060137627
 GameObject:
   m_ObjectHideFlags: 0

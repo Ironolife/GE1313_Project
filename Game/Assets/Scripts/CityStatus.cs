@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CityStatus : MonoBehaviour
 {
+    public Sprite sprite_default;
     public Sprite sprite_true;
     public Sprite sprite_false;
 
@@ -27,5 +28,13 @@ public class CityStatus : MonoBehaviour
             }
             disturbed = true;
         }
+    }
+
+    public void Reset()
+    {
+        disturbed = false;
+        SpriteRenderer sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
+        sprite_renderer.sprite = sprite_default;
+        sprite_renderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

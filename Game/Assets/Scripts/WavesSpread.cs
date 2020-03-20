@@ -30,4 +30,24 @@ public class WavesSpread : MonoBehaviour
     {
         is_paused = !is_paused;
     }
+
+    public void StartShrink()
+    {
+        StartCoroutine(Shrink());
+    }
+
+    IEnumerator Shrink()
+    {
+        while(transform.localScale.x > 0)
+        {
+            transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * spread_speed * 3;
+
+            if(transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(0, 0, 1);
+            }
+
+            yield return null;
+        }
+    }
 }

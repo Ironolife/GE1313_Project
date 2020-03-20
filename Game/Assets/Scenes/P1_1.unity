@@ -795,6 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8768e0e8beb811b41827576b1cf9c1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite_default: {fileID: 0}
   sprite_true: {fileID: 21300000, guid: 4a9476b1f48901044b729958ed2f450c, type: 3}
   sprite_false: {fileID: 21300000, guid: 0a776fe13a0ca584dbcaa10bde66e192, type: 3}
 --- !u!114 &332094468
@@ -2110,7 +2111,7 @@ GameObject:
   - component: {fileID: 1040795331}
   m_Layer: 0
   m_Name: Network
-  m_TagString: Untagged
+  m_TagString: Network
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2591,7 +2592,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Central network receive data from 3 different sensors, allowing for triangulation
-    of the location of the epicenter, then sending out alerts.
+    of the location of the epicenter, then send out alerts.
 --- !u!222 &1110802204
 CanvasRenderer:
   m_ObjectHideFlags: 0

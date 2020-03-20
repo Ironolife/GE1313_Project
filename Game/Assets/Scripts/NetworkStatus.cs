@@ -10,4 +10,9 @@ public class NetworkStatus : MonoBehaviour
     {
         return ++datapoints_received;
     }
+
+    public void Reset()
+    {
+        datapoints_received = 0;
+    }
 }

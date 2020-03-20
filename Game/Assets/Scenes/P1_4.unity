@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 1040795331}
   m_Layer: 0
   m_Name: Network
-  m_TagString: Untagged
+  m_TagString: Network
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,6 +1586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spread_speed: 3
   max_scale: 40
+  is_paused: 1
 --- !u!50 &1069243004
 Rigidbody2D:
   serializedVersion: 4
