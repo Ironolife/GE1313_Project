@@ -313,6 +313,11 @@ public class EventControl : MonoBehaviour
     {
         switch(SceneManager.GetActiveScene().name)
         {
+            case "Menu":
+            {
+                SceneManager.LoadScene("P1_1");
+                break;
+            }
             case "P1_1":
             {
                 SceneManager.LoadScene("P1_2");
@@ -339,6 +344,11 @@ public class EventControl : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     IEnumerator P1_1_1(GameObject receiver)
