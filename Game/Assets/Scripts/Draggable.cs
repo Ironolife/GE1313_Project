@@ -26,11 +26,11 @@ public class Draggable : MonoBehaviour
     {
         if(!is_frozen)
         {
-            transform.position = GetMouseAsWorldPoint() + mouse_offset;
+            transform.parent.position = GetMouseAsWorldPoint() + mouse_offset - (transform.position - transform.parent.position);
 
-            Vector3 position = gameObject.transform.position;
+            Vector3 position = transform.parent.position;
             position.z += 2f;
-            gameObject.transform.Find("Data").GetComponent<LineRenderer>().SetPositions(new Vector3[]{position, position});
+            transform.parent.Find("Data").GetComponent<LineRenderer>().SetPositions(new Vector3[]{position, position});
         }
     }
 

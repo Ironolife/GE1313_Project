@@ -19,12 +19,12 @@ public class CityStatus : MonoBehaviour
             if(status)
             {
                 sprite_renderer.sprite = sprite_true;
-                sprite_renderer.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+                // sprite_renderer.color = new Color(0.0f, 1.0f, 0.0f, 1.0f);
             }
             else
             {
                 sprite_renderer.sprite = sprite_false;
-                sprite_renderer.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+                // sprite_renderer.color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
             }
             disturbed = true;
         }
@@ -35,6 +35,6 @@ public class CityStatus : MonoBehaviour
         disturbed = false;
         SpriteRenderer sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
         sprite_renderer.sprite = sprite_default;
-        sprite_renderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        // sprite_renderer.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
