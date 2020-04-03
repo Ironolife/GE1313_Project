@@ -16,17 +16,17 @@ public class FlashAnimation : MonoBehaviour
 
         while(true)
         {
-            Color color = gameObject.GetComponent<Text>().color;
+            Color color = gameObject.GetComponent<Image>().color;
 
             if(direction)
             {
                 color.a += Time.deltaTime;
-                gameObject.GetComponent<Text>().color = color;
+                gameObject.GetComponent<Image>().color = color;
             }
             else
             {
                 color.a -= Time.deltaTime;
-                gameObject.GetComponent<Text>().color = color;
+                gameObject.GetComponent<Image>().color = color;
             }
 
             if(direction && color.a >= 0.7f)
