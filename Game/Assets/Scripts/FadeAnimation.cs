@@ -6,10 +6,20 @@ using UnityEngine.UI;
 public class FadeAnimation : MonoBehaviour
 {
     UIType UI_type;
+    public float max_alpha = 1.0f;
 
     void Start()
     {
-        if(gameObject.GetComponent<Button>() != null)
+        if(gameObject.GetComponent<Text>() != null)
+        {
+            UI_type = UIType.Text;
+            
+            Text text = gameObject.GetComponent<Text>();
+            Color color = text.color;
+            color.a = 0.0f;
+            text.color = color;
+        }
+        else if(gameObject.GetComponent<Button>() != null)
         {
             UI_type = UIType.Button;
             gameObject.GetComponent<Button>().interactable = false;
@@ -18,15 +28,6 @@ public class FadeAnimation : MonoBehaviour
             Color color = image.color;
             color.a = 0.0f;
             image.color = color;
-        }
-        else if(gameObject.GetComponent<Text>() != null)
-        {
-            UI_type = UIType.Text;
-            
-            Text text = gameObject.GetComponent<Text>();
-            Color color = text.color;
-            color.a = 0.0f;
-            text.color = color;
         }
         else if(gameObject.GetComponent<SpriteRenderer>() != null)
         {
@@ -70,7 +71,7 @@ public class FadeAnimation : MonoBehaviour
 
                 if(direction)
                 {
-                    if(color.a >= 1)
+                    if(color.a >= max_alpha)
                     {
                         done = true;
                         gameObject.GetComponent<Button>().interactable = true;
@@ -93,7 +94,7 @@ public class FadeAnimation : MonoBehaviour
 
                 if(direction)
                 {
-                    if(color.a >= 1)
+                    if(color.a >= max_alpha)
                     {
                         done = true;
                     }
@@ -115,7 +116,7 @@ public class FadeAnimation : MonoBehaviour
 
                 if(direction)
                 {
-                    if(color.a >= 1)
+                    if(color.a >= max_alpha)
                     {
                         done = true;
                     }

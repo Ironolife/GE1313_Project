@@ -10,6 +10,36 @@ public class EventControl : MonoBehaviour
     public float network_delay = 1.0f;
 
     int step = 0;
+    string p2_choice_response = "";
+    bool p2_choice_validity = false;
+
+    void Start() {
+
+        switch(SceneManager.GetActiveScene().name)
+        {
+            case "T_1":
+            {
+                T1();
+                break;
+            }
+            case "P2_1":
+            {
+                P2_1();
+                break;
+            }
+            case "P2_2":
+            {
+                P2_2();
+                break;
+            }
+            case "P2_3":
+            {
+                P2_3();
+                break;
+            }
+        }
+
+    }
 
     public void WavesDetected(GameObject receiver)
     {
@@ -343,6 +373,31 @@ public class EventControl : MonoBehaviour
                 SceneManager.LoadScene("P1_6");
                 break;
             }
+            case "P1_6":
+            {
+                SceneManager.LoadScene("T_1");
+                break;
+            }
+            case "T_1":
+            {
+                SceneManager.LoadScene("P2_1");
+                break;
+            }
+            case "P2_1":
+            {
+                SceneManager.LoadScene("P2_2");
+                break;
+            }
+            case "P2_2":
+            {
+                SceneManager.LoadScene("P2_3");
+                break;
+            }
+            case "P2_3":
+            {
+                SceneManager.LoadScene("End");
+                break;
+            }
         }
     }
 
@@ -542,5 +597,154 @@ public class EventControl : MonoBehaviour
         GameObject.Find("Epicenter").transform.Find("Waves").GetComponent<WavesSpread>().Toggle();
         GameObject.Find("Canvas").transform.Find("RetryButton").gameObject.SetActive(true);
         GameObject.Find("Canvas").transform.Find("NextButton").gameObject.SetActive(true);
+    }
+
+    void T1()
+    {
+        StartCoroutine(T1_Delay());
+    }
+
+    IEnumerator T1_Delay()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        Next();
+    }
+
+    void P2_1()
+    {
+        StartCoroutine(P2_1_Delay());
+    }
+
+    IEnumerator P2_1_Delay()
+    {
+        yield return new WaitForSeconds(1.8f);
+
+        GameObject.Find("Phone").transform.Find("Signal").gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject.Find("Canvas").transform.Find("PhoneText").gameObject.SetActive(true);
+        GameObject.Find("Network").SetActive(false);
+
+        GameObject.Find("Background").transform.Find("Base").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Desks").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Clock").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Shelf").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("TeacherDesk").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Door").gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(3f);
+
+        GameObject.Find("Background").transform.Find("Shader").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("Title").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Desks").GetComponent<MouseoverGlow>().enabled = true;
+        GameObject.Find("Background").transform.Find("Door").GetComponent<MouseoverGlow>().enabled = true;
+    }
+
+    void P2_2()
+    {
+        StartCoroutine(P2_2_Delay());
+    }
+
+    IEnumerator P2_2_Delay()
+    {
+        yield return new WaitForSeconds(1.7f);
+
+        GameObject.Find("Phone").transform.Find("Signal").gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject.Find("Canvas").transform.Find("PhoneText").gameObject.SetActive(true);
+        GameObject.Find("Network").SetActive(false);
+
+        GameObject.Find("Background").transform.Find("Base").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Cart").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Shelves").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Cashier").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Counters").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Door").gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(3f);
+
+        GameObject.Find("Background").transform.Find("Shader").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("Title").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Cart").GetComponent<MouseoverGlow>().enabled = true;
+        GameObject.Find("Background").transform.Find("Door").GetComponent<MouseoverGlow>().enabled = true;
+        GameObject.Find("Background").transform.Find("Shelves").GetComponent<MouseoverGlow>().enabled = true;
+    }
+
+    void P2_3()
+    {
+        StartCoroutine(P2_3_Delay());
+    }
+
+    IEnumerator P2_3_Delay()
+    {
+        yield return new WaitForSeconds(1.7f);
+
+        GameObject.Find("Phone").transform.Find("Signal").gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject.Find("Canvas").transform.Find("PhoneText").gameObject.SetActive(true);
+        GameObject.Find("Network").SetActive(false);
+
+        GameObject.Find("Background").transform.Find("Base").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Door").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Window").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Table").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Sofa").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("CoffeeTable").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Plant").gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(3f);
+
+        GameObject.Find("Background").transform.Find("Shader").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("Title").gameObject.SetActive(true);
+        GameObject.Find("Background").transform.Find("Door").GetComponent<MouseoverGlow>().enabled = true;
+        GameObject.Find("Background").transform.Find("Window").GetComponent<MouseoverGlow>().enabled = true;
+        GameObject.Find("Background").transform.Find("Table").GetComponent<MouseoverGlow>().enabled = true;
+        GameObject.Find("Background").transform.Find("Sofa").GetComponent<MouseoverGlow>().enabled = true;
+    }
+
+    public void P2_Choice(string response_text, bool validity)
+    {
+        GameObject.Find("Background").transform.Find("Shader").GetComponent<FadeAnimation>().FadeOut();
+        if(p2_choice_response == "")
+        {
+            GameObject.Find("Canvas").transform.Find("PhoneText").Find("TimeValue").GetComponent<Countdown>().StartTickToZero();
+        }
+        GameObject.Find("Canvas").transform.Find("Title").GetComponent<FadeAnimation>().FadeOut();
+        p2_choice_response = response_text;
+        p2_choice_validity = validity;
+    }
+
+    public void P2_Shake()
+    {
+        GameObject.Find("Background").GetComponent<QuakeAnimation>().StartQuake();
+    }
+
+    public void P2_EndShake()
+    {
+        GameObject.Find("Canvas").transform.Find("Response").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("Response").GetComponent<Text>().text = p2_choice_response;
+
+        GameObject phone_text = GameObject.Find("Canvas").transform.Find("PhoneText").gameObject;
+        for(int i = 0; i < phone_text.transform.childCount; i++)
+        {
+            phone_text.transform.GetChild(i).GetComponent<FadeAnimation>().FadeOut();
+        }
+
+        GameObject.Find("Canvas").transform.Find("RetryButton").gameObject.SetActive(true);
+
+        if(p2_choice_validity == true)
+        {
+            GameObject.Find("Canvas").transform.Find("NextButton").gameObject.SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("Phone").transform.Find("Crack").gameObject.SetActive(true);
+        }
     }
 }
